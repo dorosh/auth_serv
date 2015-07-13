@@ -10,7 +10,8 @@ urlpatterns = patterns(
     url(r'^logout/', 'django.contrib.auth.views.logout',
         {'next_page': '/'}, name='logout'),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^oauth2/', include('provider.oauth2.urls', namespace = 'oauth2')),
+    url(r'^oauth2/', include('oauth2_provider.urls', namespace = 'oauth2')),
+    # url(r'^oauth2/', include('provider.oauth2.urls', namespace = 'oauth2')),
 )
 
 if settings.DEBUG:
