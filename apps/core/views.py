@@ -33,11 +33,3 @@ class AccessTokenDetailView(AccessTokenDetailView):
         except ObjectDoesNotExist:
             return HttpResponseBadRequest(json.dumps({'error': 'invalid_token'}),
                                           content_type=JSON_CONTENT_TYPE)
-
-{
-            'user_id': userinfo['id'],
-            'username': email.split('@', 1)[0],
-            'email': email,
-            'firstname': userinfo['name'],
-            'lastname': userinfo['surname'],
-        }
