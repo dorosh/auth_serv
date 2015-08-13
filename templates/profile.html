@@ -23,7 +23,7 @@
     <input type="submit" value="disconnect {{ name }}">
   </form>
   {% else %}
-  <a class="custom_img-thumbnail_link" href="{% url 'social:begin' backend=name %}?next={{ request.path }}">connect {{ name }}</a>
+  <p><a class="custom_img-thumbnail_link" href="{% url 'social:begin' backend=name %}?next={{ request.path }}">connect {{ name }}</a></p>
   {% endif %}
   {% endfor %}
   {% endfor %}
