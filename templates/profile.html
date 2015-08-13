@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+{% load backend_utils %}
+{% block content %}
+{% if user.is_authenticated %}
+<form method="post">
+  {% csrf_token %}
+  <table>
+  {{ form.as_table }}
+  </table>
+  <input type="submit" value="Change">
+</form>
+
+<div class="col-sm-2">
+  <h4>Связать аккаунты:</h4>
+  {% static "images/button_to_bind/" as img_social %}
+  {% for sublist in available_backends|social_backends %}
+  {% for name, backend in sublist %}
+  {% associated backend %}
+  {% if association %}
+  <form method="POST" action="{% url 'social:disconnect_individual' backend=association.provider association_id=association.id %}?next={{ request.path }}">
+    {% csrf_token %}
+  </form>
+  <a data-disconnect-social-account class="custom_img-thumbnail_link bound" href="#">
+    <img class="img-thumbnail custom_img-thumbnail"
+         src="{{ img_social }}{{ name }}.png" alt="" />
+  </a>
+  {% else %}
+  <a class="custom_img-thumbnail_link" href="{% url 'social:begin' backend=name %}?next={{ request.path }}">
+    <img class="img-thumbnail custom_img-thumbnail grayscale"
+         src="{{ img_social }}{{ name }}.png" alt="" />
+  </a>
+  {% endif %}
+  {% endfor %}
+  {% endfor %}
+</div>
+
+{% endif %}
+{% endblock content %}

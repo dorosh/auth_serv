@@ -1,0 +1,75 @@
+@import "variables";
+@import "mixins";
+
+.global-header {
+  .container {
+    background: url("../img/header-bg.png") no-repeat right center;
+  }
+}
+
+.courses-list {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: left;
+  justify-content: left;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 15px 0;
+  li {
+    display: block;
+    width: 25%;
+    padding: 0 5px 20px;
+    &.course-wide-placeholder {
+      width: 50%;
+      .course-content {
+        text-align: left;
+      }
+      .course-logo {
+        left: 55px;
+      }
+    }
+  }
+}
+
+.courses-infoblock {
+  margin-bottom: 30px;
+  padding-top: 20px;
+  padding-bottom: 50px;
+  background-color: $global-content-background;
+  border-bottom: 1px solid #000000;
+  img {
+    max-height: 150px;
+    width: auto;
+  }
+}
+
+.courses-recommended {
+  h2 {
+    margin-top: 0;
+  }
+  .total-recommended {
+    float: right;
+  }
+}
+
+.co-founders {
+  background-color: $global-content-background;
+  ul {
+    display: block;
+    overflow: hidden;
+    padding-bottom: 50px;
+  }
+  li {
+    float: left;
+    width: 25%;
+    a {
+      display: block;
+      margin: 0 5px 10px 5px;
+      text-align: center;
+    }
+    img {
+      width: 100%;
+    }
+  }
+}

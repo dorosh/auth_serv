@@ -1,0 +1,53 @@
+{% load static from staticfiles %}
+<div class="modal fade" role="dialog" aria-labelledby="gridSystemModalLabel" id="register_modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="gridSystemModalLabel">Register</h4>
+      </div>
+      <div class="modal-body">
+	<div class="buttons">
+	  <div class="social">
+            <div class="row">
+              <a class="col-md-2 btn btn-default" name="facebook" href="/login/facebook/">
+                <i class="fa fa-facebook"></i>Facebook
+              </a>
+              <a class="col-md-2 btn btn-default" name="google oauth2" href="/login/google-oauth2/">
+                <i class="fa fa-google"></i>Google+
+              </a>
+              <a class="col-md-2 btn btn-default" name="mailru oauth2" href="/login/mailru-oauth2/">
+                <i class="fa fa-mailru-oauth2"></i>Mailru
+              </a>
+              <a class="col-md-2 btn btn-default" name="twitter" href="/login/twitter/">
+                <i class="fa fa-twitter"></i>Twitter
+              </a>
+              <a class="col-md-2 btn btn-default" name="vk oauth2" href="/login/vk-oauth2/">
+                <i class="fa fa-vk"></i>VK
+              </a>
+            </div>
+	  </div>
+	  <div class="legacy">
+            <form class="form-horizontal" method="post" action="{% url 'registration_register2' %}" id="registr">
+	      {% csrf_token %}
+	      <div id="reg_body">
+
+		<!-- <div class="form-group"> -->
+                <!--   <label class="control-label" for="password">Password:</label> -->
+                <!--   <input class="form-control" id="password" type="password" name="password" value="" /> -->
+		<!-- </div> -->
+
+		{{ reg_form }}
+
+	      </div>
+            </form>
+	  </div>
+	</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success" id="form_sub" >Register</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>
