@@ -20,16 +20,10 @@
   {% if association %}
   <form method="POST" action="{% url 'social:disconnect_individual' backend=association.provider association_id=association.id %}?next={{ request.path }}">
     {% csrf_token %}
+    <input type="submit" value="disconnect {{ name }}">
   </form>
-  <a data-disconnect-social-account class="custom_img-thumbnail_link bound" href="#">
-    <img class="img-thumbnail custom_img-thumbnail"
-         src="{{ img_social }}{{ name }}.png" alt="" />
-  </a>
   {% else %}
-  <a class="custom_img-thumbnail_link" href="{% url 'social:begin' backend=name %}?next={{ request.path }}">
-    <img class="img-thumbnail custom_img-thumbnail grayscale"
-         src="{{ img_social }}{{ name }}.png" alt="" />
-  </a>
+  <a class="custom_img-thumbnail_link" href="{% url 'social:begin' backend=name %}?next={{ request.path }}">connect {{ name }}</a>
   {% endif %}
   {% endfor %}
   {% endfor %}
