@@ -112,7 +112,12 @@ class UserForm(forms.ModelForm):
 
     class Meta:
         model = User
-        exclude = tuple()
+        fields = [
+            'email', 'username', 'first_name', 'last_name', 'role', 'education',
+            'university_group', 'university', 'post_address', 'city', 'country',
+            'phone', 'time_zone', 'icon_profile', 'date_of_birth', 'gender',
+            'second_name']
+
 
 class RegUserForm(RegistrationFormUniqueEmail):#(forms.ModelForm):
 
